@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    </head>
+    <body>
+        <header class="hero is-medium is-primary">
+            {% block header %}{% endblock %}
+        </header>
+            <div class="hero-body">
+                <div class="container has-text-centered is-size-2">
+                    URL Link Shortener
+                </div>
+            </div>
+        <section class="section">
+            <div class="container">
+                {% block message %}
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                        <div class="message is-danger">
+                            <div class="message-body">
+                                <ul class=flashes>
+                                {% for message in messages %}
+                                    <li>{{ message }}</li>
+                                {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        {% endif %}
+                    {% endwith %}
+                {% endblock %}
+                {% block content %}{% endblock %}
+                
+                </div>
+            </section>
+    </body>
+</html>

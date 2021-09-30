@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <nav class="breadcrumb is-right is-medium" aria-label="breadcrumbs item-padding-vertical">
+    <ul>
+        <li><a href="home">Home</a></li>
+        <li><a href="/shorten_url">Shorten URL</a></li>
+        <li class="is-active"><a href="/mylinks" aria-current="page">View Links</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+  </nav>
+{% endblock %}
+
+{% block content %}
+<div style="width:80%" class="panel is-primary">
+    <div class="panel-heading has-text-centered" >My Shortened Links</div>
+    <ul>
+        {% for link in links %}
+          <li>
+            <a class="panel-block">
+              <a href="{{ url_for('links.redirect', short_url=link.short_url, _external=True) }}">
+              {{ url_for('links.redirect',short_url=link.short_url, _external=True) }}
+              </a>
+              <h1>Source URL: {{ link['original_url'] }}</h1>
+              <form action="{{ url_for('links.delete_link') }}" method=post>
+                <input type="hidden" name="original_url" value= {{ link.original_url }}>
+                <input type="submit" value="Delete">
+            </form>
+            
+            </a>
+          </li>
+    {% endfor %}
+    </ul>
+  </p>
+{% endblock %}

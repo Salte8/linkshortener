@@ -1,0 +1,50 @@
+
+{% extends 'base.html' %}
+
+{% block header %}
+    <nav class="breadcrumb is-medium is-right" aria-label="breadcrumbs">
+        <ul>
+        <li><a href="home">Home</a></li>
+        <li><a href="/login">Login</a></li>
+        <li class="is-active"><a href="#" aria-current="page">Create Account</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block content %}
+<nav style="width:50%" class="panel is-primary ml-6">
+    <p class="panel-heading has-text-centered">
+      Create An Account
+    </p>
+    <a class="panel-block">
+        <form method="post" action="/register">
+            <div class="field">
+                <label class="label">Email</label>
+                <div class="control">
+                    <input class="input" type="text" name="username"></input>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Password</label>
+                <div class="control">
+                    <input class="input" type="password" name="password"></input>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">First Name</label>
+                <div class="control">
+                    <input class="input" type="first_name" name="first_name"></input>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Last Name</label>
+                <div class="control">
+                    <input class="input" type="last_name" name="last_name"></input>
+                </div>
+            </div>
+            <button class="button is-link" type="submit">Create Account</button>
+        </form>
+    </a>
+</nav>
+
+{% endblock %}

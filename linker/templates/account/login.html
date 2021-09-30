@@ -1,0 +1,38 @@
+
+{% extends 'base.html' %}
+
+{% block header %}
+    <nav class="breadcrumb is-medium is-right" aria-label="breadcrumbs">
+        <ul>
+        <li><a href="/home">Home</a></li>
+        <li class="is-active"><a href="#" aria-current="page">Login</a></li>
+        <li><a href="/register">Create Account</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block content %}
+<nav style="width:50%" class="panel is-primary ml-6">
+    <p class="panel-heading has-text-centered">
+      Login To Your Account
+    </p>
+    <a class="panel-block">
+        <form method="post" action="/login">
+            <div class="field">
+                <label class="label">Email</label>
+                <div class="control">
+                    <input class="input" type="text" name="username" /></input>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Password</label>
+                <div class="control">
+                    <input class="input" type="password" name="password"></input>
+                </div>
+            </div>
+        <button class="button is-link" type="submit">Login</button>
+        </form>
+    </a>
+</nav>
+
+{% endblock %}

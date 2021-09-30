@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <nav class="breadcrumb is-right is-medium" aria-label="breadcrumbs">
+        {% if g.user %}
+            <ul>
+                <li class="is-active"><a href="home" aria-current="page">Home</a></li>
+                <li><a href="/shorten_url">Shorten URL</a></li>
+                <li><a href="/mylinks">View Links</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+            {% else %}
+            <ul>
+                <li class="is-active"><a href="home" aria-current="page">Home</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Create Account</a></li>
+            </ul>
+        {% endif %}
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <p class="content has-text-centered">
+        {% if g.user %}
+        <h1 class="is-size-2">Hello, {{ g.user['first_name'] }} {{ g.user['last_name'] }}</h1>
+        <h2 class="is-size-4">Welcome to the URL Shortener! You are able to shorten any entered URL
+            and view the shortened links.</h2>
+        <br>
+        <br>
+        <a class="button is-medium is-link ml-6" href="/shorten_url">Shorten URL</a>
+        
+        <a class="button is-medium is-link ml-6" href="/mylinks">View Links</a>
+        {% else %}
+        <a class="button is-medium is-link" href="/login">Login</a>
+        <br>
+        <br>
+        <a class="button is-medium is-link" href="/register">Create Account</a>
+        {% endif %}
+    </p>
+{% endblock %}

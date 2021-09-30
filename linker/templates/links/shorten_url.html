@@ -1,0 +1,32 @@
+
+{% extends 'base.html' %}
+
+{% block header %}
+  <nav class="breadcrumb is-right is-medium" aria-label="breadcrumbs">
+    <ul>
+        <li><a href="home">Home</a></li>
+        <li class="is-active"><a href="/shorten_url" aria-current="page">Shorten URL</a></li>
+        <li><a href="/mylinks">View Links</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+  </nav>
+{% endblock %}
+
+{% block content %}
+<nav style="width: 80%" class="panel is-primary">
+  <p class="panel-heading has-text-centered">
+    Shorten a New URL
+  </p>
+  <a class="panel-block">
+    <form method="post" action="/shorten_url">
+      <div class="field">
+        <label class="label">Enter a new URL</label>
+        <div class="control">
+            <input class="input" type="text" name="original_url" /></input>
+        </div>
+      </div>
+          <button class="button is-link" type="submit">Shorten URL</button>
+    </form>
+  </a>
+</nav>
+{% endblock %}
